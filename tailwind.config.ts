@@ -23,14 +23,30 @@ export default {
 				input: 'hsl(var(--input))',
 				ring: 'hsl(var(--ring))',
 				background: 'hsl(var(--background))',
+				surface: 'hsl(var(--surface))',
 				foreground: 'hsl(var(--foreground))',
 				primary: {
 					DEFAULT: 'hsl(var(--primary))',
-					foreground: 'hsl(var(--primary-foreground))'
+					foreground: 'hsl(var(--primary-foreground))',
+					hover: 'hsl(var(--primary-hover))'
 				},
 				secondary: {
 					DEFAULT: 'hsl(var(--secondary))',
-					foreground: 'hsl(var(--secondary-foreground))'
+					foreground: 'hsl(var(--secondary-foreground))',
+					hover: 'hsl(var(--secondary-hover))'
+				},
+				fashion: {
+					DEFAULT: 'hsl(var(--fashion-accent))',
+					foreground: 'hsl(var(--fashion-accent-foreground))',
+					light: 'hsl(var(--fashion-light))'
+				},
+				success: {
+					DEFAULT: 'hsl(var(--success))',
+					foreground: 'hsl(var(--success-foreground))'
+				},
+				warning: {
+					DEFAULT: 'hsl(var(--warning))',
+					foreground: 'hsl(var(--warning-foreground))'
 				},
 				destructive: {
 					DEFAULT: 'hsl(var(--destructive))',
@@ -50,23 +66,32 @@ export default {
 				},
 				card: {
 					DEFAULT: 'hsl(var(--card))',
-					foreground: 'hsl(var(--card-foreground))'
+					foreground: 'hsl(var(--card-foreground))',
+					hover: 'hsl(var(--card-hover))'
 				},
-				sidebar: {
-					DEFAULT: 'hsl(var(--sidebar-background))',
-					foreground: 'hsl(var(--sidebar-foreground))',
-					primary: 'hsl(var(--sidebar-primary))',
-					'primary-foreground': 'hsl(var(--sidebar-primary-foreground))',
-					accent: 'hsl(var(--sidebar-accent))',
-					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
-					border: 'hsl(var(--sidebar-border))',
-					ring: 'hsl(var(--sidebar-ring))'
+				stock: {
+					high: 'hsl(var(--stock-high))',
+					medium: 'hsl(var(--stock-medium))',
+					low: 'hsl(var(--stock-low))',
+					out: 'hsl(var(--stock-out))'
 				}
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
 				md: 'calc(var(--radius) - 2px)',
 				sm: 'calc(var(--radius) - 4px)'
+			},
+			boxShadow: {
+				sm: 'var(--shadow-sm)',
+				DEFAULT: 'var(--shadow)',
+				lg: 'var(--shadow-lg)'
+			},
+			backgroundImage: {
+				'gradient-fashion': 'var(--gradient-fashion)',
+				'gradient-subtle': 'var(--gradient-subtle)'
+			},
+			transitionProperty: {
+				DEFAULT: 'var(--transition)'
 			},
 			keyframes: {
 				'accordion-down': {
