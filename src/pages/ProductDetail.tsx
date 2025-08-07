@@ -84,7 +84,7 @@ const ProductDetail = () => {
             </Button>
             
             <div className="flex items-center space-x-3">
-              <h1 className="text-xl font-bold text-foreground">StyleScan</h1>
+              <h1 className="text-xl font-bold text-foreground">Nashy Clothesy</h1>
             </div>
           </div>
         </div>

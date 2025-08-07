@@ -2,121 +2,121 @@
 @tailwind components;
 @tailwind utilities;
 
-/* StyleScan Fashion Retail Design System */
+/* Nashy Clothesy Fashion Retail Design System */
 
 @layer base {
   :root {
     /* Background & Surface Colors */
-    --background: 0 0% 99%;
-    --surface: 0 0% 97%;
-    --foreground: 220 13% 9%;
+    --background: 0 0% 100%; /* Pure white */
+    --surface: 330 100% 99%; /* Very light pink */
+    --foreground: 0 0% 0%; /* Pure black */
 
     /* Card System */
-    --card: 0 0% 100%;
-    --card-foreground: 220 13% 9%;
-    --card-hover: 220 14% 96%;
+    --card: 0 0% 100%; /* Pure white */
+    --card-foreground: 0 0% 0%; /* Pure black */
+    --card-hover: 330 100% 97%; /* Light pink for hover */
 
     /* Interactive Elements */
     --popover: 0 0% 100%;
-    --popover-foreground: 220 13% 9%;
+    --popover-foreground: 0 0% 0%;
 
     /* Brand Colors */
-    --primary: 220 13% 9%;
-    --primary-foreground: 0 0% 98%;
-    --primary-hover: 220 13% 15%;
+    --primary: 0 0% 0%; /* Pure black */
+    --primary-foreground: 0 0% 100%; /* Pure white */
+    --primary-hover: 0 0% 20%; /* Dark gray for hover */
 
-    /* Fashion Accent */
-    --fashion-accent: 15 78% 60%;
-    --fashion-accent-foreground: 0 0% 100%;
-    --fashion-light: 15 78% 95%;
+    /* Fashion Accent - Using pink/rose tones */
+    --fashion-accent: 330 81% 60%; /* #E879AB - Bright pink */
+    --fashion-accent-foreground: 0 0% 100%; /* White text on pink */
+    --fashion-light: 330 81% 95%; /* Very light pink */
 
     /* Secondary System */
-    --secondary: 220 14% 96%;
-    --secondary-foreground: 220 13% 9%;
-    --secondary-hover: 220 14% 92%;
+    --secondary: 330 25% 94%; /* Light pinkish gray */
+    --secondary-foreground: 0 0% 0%; /* Black */
+    --secondary-hover: 330 25% 88%; /* Darker pinkish gray */
 
     /* Neutral System */
-    --muted: 220 14% 96%;
-    --muted-foreground: 220 9% 46%;
+    --muted: 330 15% 94%; /* Light pink-tinted gray */
+    --muted-foreground: 0 0% 40%; /* Medium gray */
 
     /* Accent for highlights */
-    --accent: 220 14% 96%;
-    --accent-foreground: 220 13% 9%;
+    --accent: 330 81% 60%; /* Same as fashion accent */
+    --accent-foreground: 0 0% 100%;
 
     /* Status Colors */
-    --success: 142 76% 36%;
-    --success-foreground: 0 0% 98%;
-    --warning: 38 92% 50%;
-    --warning-foreground: 0 0% 98%;
-    --destructive: 0 84% 60%;
-    --destructive-foreground: 0 0% 98%;
+    --success: 330 81% 60%; /* Pink for success */
+    --success-foreground: 0 0% 100%;
+    --warning: 38 100% 65%; /* Soft orange for warning */
+    --warning-foreground: 0 0% 0%;
+    --destructive: 0 100% 50%; /* Pure red */
+    --destructive-foreground: 0 0% 100%;
 
     /* Form Elements */
-    --border: 220 13% 91%;
-    --input: 220 13% 91%;
-    --ring: 220 13% 9%;
+    --border: 330 15% 88%; /* Light pink-tinted gray border */
+    --input: 330 15% 88%;
+    --ring: 330 81% 60%; /* Pink focus ring */
 
     /* Design System Variables */
     --radius: 0.75rem;
     --transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-    --shadow-sm: 0 1px 2px 0 hsl(220 13% 9% / 0.05);
-    --shadow: 0 1px 3px 0 hsl(220 13% 9% / 0.1), 0 1px 2px -1px hsl(220 13% 9% / 0.1);
-    --shadow-lg: 0 10px 15px -3px hsl(220 13% 9% / 0.1), 0 4px 6px -4px hsl(220 13% 9% / 0.1);
+    --shadow-sm: 0 1px 2px 0 hsl(0 0% 0% / 0.05);
+    --shadow: 0 1px 3px 0 hsl(0 0% 0% / 0.1), 0 1px 2px -1px hsl(0 0% 0% / 0.1);
+    --shadow-lg: 0 10px 15px -3px hsl(0 0% 0% / 0.1), 0 4px 6px -4px hsl(0 0% 0% / 0.1);
     
     /* Fashion Gradients */
-    --gradient-fashion: linear-gradient(135deg, hsl(var(--fashion-accent)) 0%, hsl(15 65% 50%) 100%);
-    --gradient-subtle: linear-gradient(135deg, hsl(var(--background)) 0%, hsl(var(--surface)) 100%);
+    --gradient-fashion: linear-gradient(135deg, hsl(330 81% 60%) 0%, hsl(330 81% 50%) 100%);
+    --gradient-subtle: linear-gradient(135deg, hsl(0 0% 100%) 0%, hsl(330 100% 99%) 100%);
     
     /* Inventory Status Colors */
-    --stock-high: 142 76% 36%;
-    --stock-medium: 38 92% 50%;
-    --stock-low: 0 84% 60%;
-    --stock-out: 220 9% 46%;
+    --stock-high: 330 81% 60%; /* Pink for high stock */
+    --stock-medium: 38 100% 65%; /* Orange for medium */
+    --stock-low: 0 100% 50%; /* Red for low */
+    --stock-out: 0 0% 40%; /* Gray for out */
   }
 
   .dark {
-    --background: 220 13% 9%;
-    --surface: 220 13% 11%;
-    --foreground: 0 0% 98%;
+    --background: 0 0% 0%; /* Pure black */
+    --surface: 330 25% 8%; /* Very dark pink-tinted */
+    --foreground: 0 0% 100%; /* Pure white */
 
-    --card: 220 13% 11%;
-    --card-foreground: 0 0% 98%;
-    --card-hover: 220 13% 15%;
+    --card: 330 15% 5%; /* Dark pink-tinted */
+    --card-foreground: 0 0% 100%; /* White */
+    --card-hover: 330 15% 10%; /* Slightly lighter pink-tinted */
 
-    --popover: 220 13% 11%;
-    --popover-foreground: 0 0% 98%;
+    --popover: 330 15% 5%;
+    --popover-foreground: 0 0% 100%;
 
-    --primary: 0 0% 98%;
-    --primary-foreground: 220 13% 9%;
-    --primary-hover: 220 14% 90%;
+    --primary: 0 0% 100%; /* White */
+    --primary-foreground: 0 0% 0%; /* Black */
+    --primary-hover: 0 0% 90%;
 
-    --fashion-accent: 15 78% 65%;
-    --fashion-accent-foreground: 0 0% 100%;
-    --fashion-light: 15 78% 15%;
+    --fashion-accent: 330 81% 65%; /* Brighter pink for dark mode */
+    --fashion-accent-foreground: 0 0% 0%; /* Black text */
+    --fashion-light: 330 81% 15%; /* Dark pink */
 
-    --secondary: 220 13% 15%;
-    --secondary-foreground: 0 0% 98%;
-    --secondary-hover: 220 13% 20%;
+    --secondary: 330 15% 15%; /* Dark pink-tinted gray */
+    --secondary-foreground: 0 0% 100%;
+    --secondary-hover: 330 15% 20%;
 
-    --muted: 220 13% 15%;
-    --muted-foreground: 220 9% 65%;
+    --muted: 330 10% 15%;
+    --muted-foreground: 0 0% 60%;
 
-    --accent: 220 13% 15%;
-    --accent-foreground: 0 0% 98%;
+    --accent: 330 81% 65%;
+    --accent-foreground: 0 0% 0%;
 
-    --success: 142 76% 40%;
-    --success-foreground: 0 0% 98%;
-    --warning: 38 92% 55%;
-    --warning-foreground: 0 0% 98%;
-    --destructive: 0 84% 65%;
-    --destructive-foreground: 0 0% 98%;
+    --success: 330 81% 65%;
+    --success-foreground: 0 0% 0%;
+    --warning: 38 100% 70%;
+    --warning-foreground: 0 0% 0%;
+    --destructive: 0 100% 60%;
+    --destructive-foreground: 0 0% 100%;
 
-    --border: 220 13% 20%;
-    --input: 220 13% 20%;
-    --ring: 0 0% 98%;
+    --border: 330 10% 20%;
+    --input: 330 10% 20%;
+    --ring: 330 81% 65%;
     
-    --gradient-fashion: linear-gradient(135deg, hsl(var(--fashion-accent)) 0%, hsl(15 65% 55%) 100%);
-    --gradient-subtle: linear-gradient(135deg, hsl(var(--background)) 0%, hsl(var(--surface)) 100%);
+    --gradient-fashion: linear-gradient(135deg, hsl(330 81% 65%) 0%, hsl(330 81% 55%) 100%);
+    --gradient-subtle: linear-gradient(135deg, hsl(0 0% 0%) 0%, hsl(330 25% 8%) 100%);
   }
 }
 
@@ -127,5 +127,60 @@
 
   body {
     @apply bg-background text-foreground;
+  }
+
+  /* Modern animations and utilities */
+  .animate-fade-in {
+    animation: fade-in 0.5s ease-out forwards;
+  }
+
+  .animate-slide-up {
+    animation: slide-up 0.5s ease-out forwards;
+  }
+
+  .animate-bounce-subtle {
+    animation: bounce-subtle 2s infinite;
+  }
+
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes slide-up {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes bounce-subtle {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-3px);
+    }
+  }
+
+  /* Smooth scrolling */
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* Enhanced focus states */
+  .focus-ring:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px hsl(var(--fashion));
   }
 }

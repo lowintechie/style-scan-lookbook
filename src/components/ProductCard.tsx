@@ -36,57 +36,61 @@ export const ProductCard = ({
   const stockStatus = getStockStatus(stock);
 
   return (
-    <Card className="group relative overflow-hidden transition-all duration-300 hover:shadow-lg hover:bg-card-hover border-border/50">
+    <Card className="group relative overflow-hidden transition-all duration-300 hover:shadow-xl hover:shadow-fashion/10 hover:bg-card-hover border-border hover:border-fashion/50 hover:-translate-y-1 h-full flex flex-col">
       {/* Stock Badge */}
-      <div className="absolute top-3 left-3 z-10">
+      <div className="absolute top-2 left-2 z-10">
         <Badge 
           variant={stockStatus.variant as any}
-          className="text-xs font-medium px-2 py-1 rounded-md bg-card/90 backdrop-blur-sm"
+          className="text-xs font-medium px-1.5 py-0.5 rounded-full bg-background/95 backdrop-blur-sm md:px-2 md:py-1 border shadow-sm"
         >
-          {stockStatus.text}
+          <span className="hidden sm:inline">{stockStatus.text}</span>
+          <span className="sm:hidden">{stock}</span>
         </Badge>
       </div>
 
       {/* QR Code Button */}
-      <div className="absolute top-3 right-3 z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+      <div className="absolute top-2 right-2 z-10 opacity-0 group-hover:opacity-100 transition-all duration-300 transform group-hover:scale-105">
         <Button
           size="sm"
           variant="secondary"
-          className="h-8 w-8 p-0 bg-card/90 backdrop-blur-sm hover:bg-fashion hover:text-fashion-foreground"
+          className="h-6 w-6 p-0 bg-background/95 backdrop-blur-sm hover:bg-fashion hover:text-fashion-foreground border shadow-sm md:h-8 md:w-8"
           onClick={() => onViewQR?.(id)}
         >
-          <QrCode className="h-4 w-4" />
+          <QrCode className="h-3 w-3 md:h-4 md:w-4" />
         </Button>
       </div>
 
       {/* Product Image */}
-      <div className="aspect-square overflow-hidden">
+      <div className="aspect-square overflow-hidden bg-muted/20">
         <img
           src={image}
           alt={name}
-          className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+          className="w-full h-full object-cover transition-all duration-500 group-hover:scale-110"
+          loading="lazy"
         />
       </div>
 
-      {/* Product Details */}
-      <div className="p-4 space-y-3">
-        <div className="space-y-1">
-          <h3 className="font-semibold text-card-foreground text-lg leading-tight">{name}</h3>
-          <p className="text-muted-foreground text-sm line-clamp-2">{description}</p>
+      {/* Product Details - Flex grow to fill remaining space */}
+      <div className="p-3 md:p-4 flex flex-col flex-grow bg-background">
+        <div className="flex-grow space-y-1 mb-3 md:mb-4">
+          <h3 className="font-semibold text-card-foreground text-sm leading-tight md:text-lg line-clamp-2 min-h-[2.5rem] md:min-h-[3.5rem] group-hover:text-fashion transition-colors duration-200">{name}</h3>
+          <p className="text-muted-foreground text-xs line-clamp-2 hidden md:block md:text-sm min-h-[2rem]">{description}</p>
         </div>
 
-        <div className="flex items-center justify-between">
-          <div className="text-2xl font-bold text-card-foreground">
+        {/* Price and Button - Always at bottom */}
+        <div className="flex flex-col space-y-3 md:flex-row md:items-center md:justify-between md:space-y-0 mt-auto">
+          <div className="text-lg font-bold text-foreground md:text-xl">
             ${price.toFixed(2)}
           </div>
           <Button
             size="sm"
             variant="fashion"
-            className="h-9 px-4 font-medium"
+            className="h-8 px-3 text-xs font-medium md:h-9 md:px-4 md:text-sm transition-all duration-200 hover:scale-105"
             onClick={() => onViewProduct?.(id)}
           >
-            <Eye className="h-4 w-4 mr-1" />
-            View Details
+            <Eye className="h-3 w-3 mr-1 md:h-4 md:w-4" />
+            <span className="hidden sm:inline">View Details</span>
+            <span className="sm:hidden">View</span>
           </Button>
         </div>
       </div>

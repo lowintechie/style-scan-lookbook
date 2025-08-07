@@ -63,7 +63,7 @@ const AdminLogin = () => {
           <div className="flex items-center justify-center w-12 h-12 bg-gradient-fashion rounded-lg mx-auto mb-4">
             <Scan className="h-6 w-6 text-white" />
           </div>
-          <CardTitle className="text-2xl">StyleScan Admin</CardTitle>
+          <CardTitle className="text-2xl">Nashy Clothesy Admin</CardTitle>
           <CardDescription>
             Sign in to manage your digital lookbook
           </CardDescription>
