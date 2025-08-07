@@ -1,81 +1,20 @@
 import { useState, useMemo } from "react";
+import { useNavigate } from "react-router-dom";
 import { ProductCard } from "@/components/ProductCard";
 import { CategoryFilter } from "@/components/CategoryFilter";
 import { SearchBar } from "@/components/SearchBar";
 import { QrCode, Store, Scan } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useToast } from "@/hooks/use-toast";
+import { useProducts } from "@/hooks/useProducts";
 
-// Import product images
-import jacketImage from "@/assets/product-jacket.jpg";
-import sneakersImage from "@/assets/product-sneakers.jpg";
-import pantsImage from "@/assets/product-pants.jpg";
-import runningImage from "@/assets/product-running.jpg";
-import retroImage from "@/assets/product-retro.jpg";
-import socksImage from "@/assets/product-socks.jpg";
-
-// Mock product data inspired by your reference
-const products = [
-  {
-    id: "1",
-    name: "StyleScan Tech Jacket",
-    description: "Crafted with stretchy, breathable material, the perfect modern jacket for any occasion.",
-    price: 130.83,
-    stock: 198,
-    image: jacketImage,
-    category: "Clothing",
-  },
-  {
-    id: "2",
-    name: "Urban Waffle Debut",
-    description: "Retro gets modernized in this Urban Waffle Debut. Remember that smooth comfort.",
-    price: 80.00,
-    stock: 218,
-    image: sneakersImage,
-    category: "Shoes",
-  },
-  {
-    id: "3",
-    name: "Elite Crew Basketball Socks",
-    description: "The Elite Crew Basketball Socks offer a supportive fit and feel perfect for any activity.",
-    price: 16.50,
-    stock: 123,
-    image: socksImage,
-    category: "Others Product",
-  },
-  {
-    id: "4",
-    name: "P-6000 Running Shoes",
-    description: "The P-6000 draws on the 2006 Air Pegasus, bringing forward iconic design elements.",
-    price: 115.28,
-    stock: 121,
-    image: runningImage,
-    category: "Shoes",
-  },
-  {
-    id: "5",
-    name: "Zoom Vomero Roam",
-    description: "Designed for city conditions, this winterized version offers superior comfort and style.",
-    price: 187.43,
-    stock: 119,
-    image: retroImage,
-    category: "Shoes",
-  },
-  {
-    id: "6",
-    name: "Men's Fleece Cargo Pants",
-    description: "Clean meets casual with these brushed fleece cargo pants that offer comfort and style.",
-    price: 65.42,
-    stock: 192,
-    image: pantsImage,
-    category: "Clothing",
-  },
-];
 
 const Index = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const [activeCategory, setActiveCategory] = useState("All Product");
   const { toast } = useToast();
+  const navigate = useNavigate();
+  const { products, loading, error } = useProducts();
 
   // Calculate categories with counts
   const categories = useMemo(() => {
@@ -102,12 +41,8 @@ const Index = () => {
     });
   }, [searchQuery, activeCategory]);
 
-  const handleAddToCart = (productId: string) => {
-    const product = products.find(p => p.id === productId);
-    toast({
-      title: "Added to Cart",
-      description: `${product?.name} has been added to your cart.`,
-    });
+  const handleViewProduct = (productId: string) => {
+    navigate(`/product/${productId}`);
   };
 
   const handleViewQR = (productId: string) => {
@@ -140,7 +75,11 @@ const Index = () => {
                 onChange={setSearchQuery}
                 placeholder="Search products..."
               />
-              <Button variant="fashion" className="h-11 px-4">
+              <Button 
+                variant="fashion" 
+                className="h-11 px-4"
+                onClick={() => navigate('/admin/login')}
+              >
                 <Store className="h-4 w-4 mr-2" />
                 Admin
               </Button>
@@ -158,17 +97,39 @@ const Index = () => {
           onCategoryChange={setActiveCategory}
         />
 
+        {/* Loading State */}
+        {loading && (
+          <div className="flex justify-center py-16">
+            <div className="text-lg">Loading products...</div>
+          </div>
+        )}
+
+        {/* Error State */}
+        {error && (
+          <div className="text-center py-16">
+            <div className="text-destructive">{error}</div>
+          </div>
+        )}
+
         {/* Products Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-          {filteredProducts.map((product) => (
-            <ProductCard
-              key={product.id}
-              {...product}
-              onAddToCart={handleAddToCart}
-              onViewQR={handleViewQR}
-            />
-          ))}
-        </div>
+        {!loading && !error && (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+            {filteredProducts.map((product) => (
+              <ProductCard
+                key={product.id}
+                id={product.id}
+                name={product.name}
+                description={product.description || ""}
+                price={product.price}
+                stock={product.stock}
+                image={product.image_url || ""}
+                category={product.category}
+                onViewProduct={handleViewProduct}
+                onViewQR={handleViewQR}
+              />
+            ))}
+          </div>
+        )}
 
         {/* Empty State */}
         {filteredProducts.length === 0 && (

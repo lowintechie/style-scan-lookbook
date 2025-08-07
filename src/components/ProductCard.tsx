@@ -1,7 +1,7 @@
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { QrCode, Plus } from "lucide-react";
+import { QrCode, Eye } from "lucide-react";
 
 interface ProductCardProps {
   id: string;
@@ -11,7 +11,7 @@ interface ProductCardProps {
   stock: number;
   image: string;
   category: string;
-  onAddToCart?: (id: string) => void;
+  onViewProduct?: (id: string) => void;
   onViewQR?: (id: string) => void;
 }
 
@@ -30,7 +30,7 @@ export const ProductCard = ({
   stock,
   image,
   category,
-  onAddToCart,
+  onViewProduct,
   onViewQR,
 }: ProductCardProps) => {
   const stockStatus = getStockStatus(stock);
@@ -83,11 +83,10 @@ export const ProductCard = ({
             size="sm"
             variant="fashion"
             className="h-9 px-4 font-medium"
-            onClick={() => onAddToCart?.(id)}
-            disabled={stock === 0}
+            onClick={() => onViewProduct?.(id)}
           >
-            <Plus className="h-4 w-4 mr-1" />
-            Add to Cart
+            <Eye className="h-4 w-4 mr-1" />
+            View Details
           </Button>
         </div>
       </div>
